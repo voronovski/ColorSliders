@@ -24,12 +24,15 @@ class ViewController: UIViewController {
 
     // MARK: IBActions
     @IBAction func redSliderAction(_ sender: UISlider) {
+        redValueLabel.text = String(round(sender.value * 100) / 100.0)
     }
     
     @IBAction func greenSliderAction(_ sender: UISlider) {
+        greenValueLabel.text = String(round(sender.value * 100) / 100.0)
     }
     
     @IBAction func blueSliderAction(_ sender: UISlider) {
+        blueValueLabel.text = String(round(sender.value * 100) / 100.0)
     }
 }
 
