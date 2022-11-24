@@ -8,9 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    // не смог победить дергающиеся слайдеры. так и не понял, как настроить констрейнты
-    
+        
     var redSenderValue: Float = 0.5
     var greenSenderValue: Float = 0.5
     var blueSenderValue: Float = 0.5
