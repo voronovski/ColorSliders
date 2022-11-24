@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // не смог победить дергающиеся слайдеры. так и не понял, как настроить констрейнты
+    
     var redSenderValue: Float = 0.5
     var greenSenderValue: Float = 0.5
     var blueSenderValue: Float = 0.5
@@ -56,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func blueSliderAction(_ sender: UISlider) {
-        blueValueLabel.text = String(round(sender.value * 100) / 100.0)
+        blueValueLabel.text = String(format: "%.2f", sender.value)
         blueSenderValue = sender.value
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSenderValue),

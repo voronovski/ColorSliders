@@ -46,20 +46,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-wn-Qfm">
-                                <rect key="frame" x="119.33333333333331" y="280" width="259.66666666666663" height="31"/>
-                                <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <action selector="redSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="6MO-eD-THI"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-at-D21">
-                                <rect key="frame" x="119.33333333333331" y="328" width="259.66666666666663" height="31"/>
-                                <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
-                                <connections>
-                                    <action selector="greenSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="hHH-9d-MBF"/>
-                                </connections>
-                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="MG7-3W-wua">
                                 <rect key="frame" x="16" y="285" width="51" height="117"/>
                                 <subviews>
@@ -83,6 +69,20 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-wn-Qfm">
+                                <rect key="frame" x="119.33333333333331" y="280" width="259.66666666666663" height="31"/>
+                                <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="redSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="6MO-eD-THI"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-at-D21">
+                                <rect key="frame" x="119.33333333333331" y="328" width="259.66666666666663" height="31"/>
+                                <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                <connections>
+                                    <action selector="greenSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="hHH-9d-MBF"/>
+                                </connections>
+                            </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-s6-Lzn">
                                 <rect key="frame" x="119.33333333333331" y="376" width="259.66666666666663" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
@@ -99,17 +99,17 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pfj-at-D21" secondAttribute="trailing" constant="16" id="H8X-xq-lfa"/>
                             <constraint firstItem="yEY-wn-Qfm" firstAttribute="top" secondItem="GCh-BD-BKw" secondAttribute="bottom" constant="55" id="HCu-OR-wse"/>
                             <constraint firstItem="pfj-at-D21" firstAttribute="top" secondItem="yEY-wn-Qfm" secondAttribute="bottom" constant="18" id="Hw4-8z-xed"/>
+                            <constraint firstItem="yEY-wn-Qfm" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="LpU-hV-ltv"/>
                             <constraint firstItem="MG7-3W-wua" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Srf-q5-Q1p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEY-wn-Qfm" secondAttribute="trailing" constant="16" id="UEu-Mt-Tcp"/>
-                            <constraint firstItem="pfj-at-D21" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="ZVR-if-x9h"/>
                             <constraint firstItem="GCh-BD-BKw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jDM-SW-mg9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ua2-s6-Lzn" secondAttribute="trailing" constant="16" id="klH-JW-xuV"/>
+                            <constraint firstItem="pfj-at-D21" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="lKo-0i-Qna"/>
                             <constraint firstItem="MG7-3W-wua" firstAttribute="top" secondItem="GCh-BD-BKw" secondAttribute="bottom" constant="60" id="lPH-pZ-EV7"/>
-                            <constraint firstItem="ua2-s6-Lzn" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="mmJ-ih-Idf"/>
                             <constraint firstItem="4P4-D6-h30" firstAttribute="top" secondItem="GCh-BD-BKw" secondAttribute="bottom" constant="60" id="nc2-vZ-xaK"/>
-                            <constraint firstItem="yEY-wn-Qfm" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="o1b-Dc-BhT"/>
                             <constraint firstItem="ua2-s6-Lzn" firstAttribute="top" secondItem="pfj-at-D21" secondAttribute="bottom" constant="18" id="pN9-Kl-52d"/>
                             <constraint firstItem="4P4-D6-h30" firstAttribute="leading" secondItem="MG7-3W-wua" secondAttribute="trailing" constant="10" id="xSK-gI-nZ9"/>
+                            <constraint firstItem="ua2-s6-Lzn" firstAttribute="leading" secondItem="4P4-D6-h30" secondAttribute="trailing" constant="10" id="yRa-Bk-2em"/>
                         </constraints>
                     </view>
                     <connections>
