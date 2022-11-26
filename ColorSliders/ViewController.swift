@@ -8,8 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
-    
+            
     // MARK: IBOutlets
     @IBOutlet var colorView: UIView!
     
@@ -24,6 +23,7 @@ class ViewController: UIViewController {
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         redValueLabel.text = String(format: "%.2f", redSenderValue)
         greenValueLabel.text = String(format: "%.2f", greenSenderValue)
         blueValueLabel.text = String(format: "%.2f", blueSenderValue)
