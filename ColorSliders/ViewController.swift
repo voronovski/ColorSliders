@@ -9,9 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
         
-    var redSenderValue: Float = 0.5
-    var greenSenderValue: Float = 0.5
-    var blueSenderValue: Float = 0.5
     
     // MARK: IBOutlets
     @IBOutlet var colorView: UIView!
@@ -20,9 +17,17 @@ class ViewController: UIViewController {
     @IBOutlet var greenValueLabel: UILabel!
     @IBOutlet var blueValueLabel: UILabel!
     
+    var redSenderValue: Float = 0.5
+    var greenSenderValue: Float = 0.5
+    var blueSenderValue: Float = 0.5
+    
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        redValueLabel.text = String(format: "%.2f", redSenderValue)
+        greenValueLabel.text = String(format: "%.2f", greenSenderValue)
+        blueValueLabel.text = String(format: "%.2f", blueSenderValue)
+        
         colorView.layer.cornerRadius = 20
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSenderValue),
