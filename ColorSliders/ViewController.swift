@@ -26,21 +26,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 20
-        setRGBLabelsValue()
         setViewColor()
+        setRGBLabelsValue()
     }
 
     // MARK: IBActions
     @IBAction func rgbSliderAction(_ sender: UISlider) {
-        setRGBLabelsValue()
         setViewColor()
+        
+        switch sender {
+        case redSlider:
+            redValueLabel.text = getStringValue(from: redSlider)
+        case greenSlider:
+            greenValueLabel.text = getStringValue(from: greenSlider)
+        default:
+            blueValueLabel.text = getStringValue(from: blueSlider)
+        }
     }
     
     // MARK: Private methods
     private func setRGBLabelsValue() {
-        redValueLabel.text = String(format: "%.2f", redSlider.value)
-        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
-        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
+        redValueLabel.text = getStringValue(from: redSlider)
+        greenValueLabel.text = getStringValue(from: greenSlider)
+        blueValueLabel.text = getStringValue(from: blueSlider)
     }
     
     private func setViewColor() {
@@ -50,6 +58,10 @@ class ViewController: UIViewController {
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
+    }
+    
+    private func getStringValue(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 
