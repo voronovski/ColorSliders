@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
         colorView.layer.cornerRadius = 20
         setViewColor()
-        setRGBLabelsValue()
+        setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
     }
 
     // MARK: IBActions
@@ -45,10 +45,17 @@ class ViewController: UIViewController {
     }
     
     // MARK: Private methods
-    private func setRGBLabelsValue() {
-        redValueLabel.text = getStringValue(from: redSlider)
-        greenValueLabel.text = getStringValue(from: greenSlider)
-        blueValueLabel.text = getStringValue(from: blueSlider)
+    private func setRGBLabelsValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redValueLabel:
+                redValueLabel.text = getStringValue(from: redSlider)
+            case greenValueLabel:
+                greenValueLabel.text = getStringValue(from: greenSlider)
+            default:
+                blueValueLabel.text = getStringValue(from: blueSlider)
+            }
+        }
     }
     
     private func setViewColor() {
