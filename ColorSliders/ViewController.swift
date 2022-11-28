@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
             
     // MARK: IBOutlets
+    
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redValueLabel: UILabel!
