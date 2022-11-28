@@ -122,9 +122,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueSlider" destination="ua2-s6-Lzn" id="Mcb-GA-avN"/>
                         <outlet property="blueValueLabel" destination="p0t-MI-HHu" id="zpN-Ux-YwD"/>
                         <outlet property="colorView" destination="GCh-BD-BKw" id="6Vq-QA-96u"/>
+                        <outlet property="greenSlider" destination="pfj-at-D21" id="Nrt-zX-cfF"/>
                         <outlet property="greenValueLabel" destination="atV-Vq-nEJ" id="UyJ-Gb-L7F"/>
+                        <outlet property="redSlider" destination="yEY-wn-Qfm" id="r6b-RJ-qjT"/>
                         <outlet property="redValueLabel" destination="T5v-ta-wnp" id="DgW-9p-IU1"/>
                     </connections>
                 </viewController>

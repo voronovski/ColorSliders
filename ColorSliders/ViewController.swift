@@ -16,58 +16,55 @@ class ViewController: UIViewController {
     @IBOutlet var redValueLabel: UILabel!
     @IBOutlet var greenValueLabel: UILabel!
     @IBOutlet var blueValueLabel: UILabel!
-    
-    var redSenderValue: Float = 0.5
-    var greenSenderValue: Float = 0.5
-    var blueSenderValue: Float = 0.5
+
+    @IBOutlet var redSlider: UISlider!
+    @IBOutlet var greenSlider: UISlider!
+    @IBOutlet var blueSlider: UISlider!
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redValueLabel.text = String(format: "%.2f", redSenderValue)
-        greenValueLabel.text = String(format: "%.2f", greenSenderValue)
-        blueValueLabel.text = String(format: "%.2f", blueSenderValue)
+        redValueLabel.text = String(format: "%.2f", redSlider.value)
+        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
+        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
         
         colorView.layer.cornerRadius = 20
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redSenderValue),
-            green: CGFloat(greenSenderValue),
-            blue: CGFloat(blueSenderValue),
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
 
     // MARK: IBActions
     @IBAction func redSliderAction(_ sender: UISlider) {
-        redValueLabel.text = String(format: "%.2f", sender.value)
-        redSenderValue = sender.value
+        redValueLabel.text = String(format: "%.2f", redSlider.value)
         colorView.backgroundColor = UIColor(
-            red: CGFloat(sender.value),
-            green: CGFloat(greenSenderValue),
-            blue: CGFloat(blueSenderValue),
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
     
     @IBAction func greenSliderAction(_ sender: UISlider) {
-        greenValueLabel.text = String(format: "%.2f", sender.value)
-        greenSenderValue = sender.value
+        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redSenderValue),
-            green: CGFloat(sender.value),
-            blue: CGFloat(blueSenderValue),
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
     
     @IBAction func blueSliderAction(_ sender: UISlider) {
-        blueValueLabel.text = String(format: "%.2f", sender.value)
-        blueSenderValue = sender.value
+        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redSenderValue),
-            green: CGFloat(greenSenderValue),
-            blue: CGFloat(sender.value),
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
