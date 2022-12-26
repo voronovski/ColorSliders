@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingsViewController.swift
 //  ColorSliders
 //
 //  Created by Aleksei Voronovskii on 11/21/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsViewController: UIViewController {
             
     // MARK: - IBOutlets
     
@@ -20,6 +20,13 @@ class ViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+    
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
+    
+    
+    var color: UIColor!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -43,6 +50,10 @@ class ViewController: UIViewController {
             blueValueLabel.text = getStringValue(from: blueSlider)
         }
     }
+    
+    @IBAction func rgbTextFieldAction(_ sender: UITextField) {
+    }
+    
     
     // MARK: - Private methods
     private func setRGBLabelsValue(for labels: UILabel...) {
