@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
             
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
     
     @IBOutlet var colorView: UIView!
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    // MARK: View Lifecycle
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
     }
 
-    // MARK: IBActions
+    // MARK: - IBActions
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setViewColor()
         
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setRGBLabelsValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label {
