@@ -60,14 +60,20 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Private methods
     private func setSlidersValue(for sliders: UISlider..., as color: UIColor) {
+        var redComponent: CGFloat = 0
+        var greenComponent: CGFloat = 0
+        var blueComponent: CGFloat = 0
+        var alphaComponent: CGFloat = 0
+        color.getRed(&redComponent, green: &greenComponent, blue: &blueComponent, alpha: &alphaComponent)
+        
         sliders.forEach { slider in
             switch slider {
             case redSlider:
-                redSlider.value = Float(color.ciColor.red)
+                redSlider.value = Float(redComponent)
             case greenSlider:
-                greenSlider.value = Float(color.ciColor.green)
+                greenSlider.value = Float(greenComponent)
             default:
-                blueSlider.value = Float(color.ciColor.blue)
+                blueSlider.value = Float(blueComponent)
             }
         }
     }
@@ -92,6 +98,7 @@ class SettingsViewController: UIViewController {
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
+        color = colorView.backgroundColor
     }
     
     private func getSliderStringValue(from slider: UISlider) -> String {

@@ -19,5 +19,11 @@ class MainViewController: UIViewController {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
         settingsVC.color = color
     }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let settingsVC = segue.source as? SettingsViewController else { return }
+        color = settingsVC.color
+        view.backgroundColor = color
+    }
 
 }
