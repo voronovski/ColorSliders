@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Cco-Og-QwW">
             <objects>
-                <viewController id="hDH-ql-zNm" sceneMemberID="viewController">
+                <viewController id="hDH-ql-zNm" customClass="MainViewController" customModule="ColorSliders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bxz-EV-Gep">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="7av-dF-Uyq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="PLe-sA-aZ3"/>
                                                 </connections>
@@ -158,7 +158,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="Et1-KK-Edd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="wsM-M9-acR"/>
                                                 </connections>
@@ -169,7 +169,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="IWC-Qo-TRB"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="D4O-UI-2UQ"/>
                                                 </connections>

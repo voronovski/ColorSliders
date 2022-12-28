@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 20
+        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
         setViewColor()
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
     }
@@ -43,28 +44,43 @@ class SettingsViewController: UIViewController {
         
         switch sender {
         case redSlider:
-            redValueLabel.text = getStringValue(from: redSlider)
+            redValueLabel.text = getSliderStringValue(from: redSlider)
         case greenSlider:
-            greenValueLabel.text = getStringValue(from: greenSlider)
+            greenValueLabel.text = getSliderStringValue(from: greenSlider)
         default:
-            blueValueLabel.text = getStringValue(from: blueSlider)
+            blueValueLabel.text = getSliderStringValue(from: blueSlider)
         }
     }
     
-    @IBAction func rgbTextFieldAction(_ sender: UITextField) {
-    }
+//    @IBAction func rgbTextFieldAction(_ sender: UITextField) {
+//        setViewColor()
+//
+//    }
     
     
     // MARK: - Private methods
+    private func setSlidersValue(for sliders: UISlider..., as color: UIColor) {
+        sliders.forEach { slider in
+            switch slider {
+            case redSlider:
+                redSlider.value = Float(color.ciColor.red)
+            case greenSlider:
+                greenSlider.value = Float(color.ciColor.green)
+            default:
+                blueSlider.value = Float(color.ciColor.blue)
+            }
+        }
+    }
+    
     private func setRGBLabelsValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label {
             case redValueLabel:
-                redValueLabel.text = getStringValue(from: redSlider)
+                redValueLabel.text = getSliderStringValue(from: redSlider)
             case greenValueLabel:
-                greenValueLabel.text = getStringValue(from: greenSlider)
+                greenValueLabel.text = getSliderStringValue(from: greenSlider)
             default:
-                blueValueLabel.text = getStringValue(from: blueSlider)
+                blueValueLabel.text = getSliderStringValue(from: blueSlider)
             }
         }
     }
@@ -78,8 +94,18 @@ class SettingsViewController: UIViewController {
         )
     }
     
-    private func getStringValue(from slider: UISlider) -> String {
+    private func getSliderStringValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
+    
+//    private func getTextFieldStringValue(from textField: UITextField) -> String {
+//        if Double(textField.text) < 0 {
+//            textField.text = "0"
+//        }
+//        if Double(textField.text) > 1 {
+//            textField.text = "1.0"
+//        }
+//        String(format: "%.2f", textField.text)
+//    }
 }
 
