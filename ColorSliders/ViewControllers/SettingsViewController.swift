@@ -35,12 +35,14 @@ class SettingsViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
         setViewColor()
+        setTextFieldValue()
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
     }
 
     // MARK: - IBActions
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setViewColor()
+        setTextFieldValue()
         
         switch sender {
         case redSlider:
@@ -51,12 +53,6 @@ class SettingsViewController: UIViewController {
             blueValueLabel.text = getSliderStringValue(from: blueSlider)
         }
     }
-    
-//    @IBAction func rgbTextFieldAction(_ sender: UITextField) {
-//        setViewColor()
-//
-//    }
-    
     
     // MARK: - Private methods
     private func setSlidersValue(for sliders: UISlider..., as color: UIColor) {
@@ -105,14 +101,17 @@ class SettingsViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
     
-//    private func getTextFieldStringValue(from textField: UITextField) -> String {
-//        if Double(textField.text) < 0 {
-//            textField.text = "0"
-//        }
-//        if Double(textField.text) > 1 {
-//            textField.text = "1.0"
-//        }
-//        String(format: "%.2f", textField.text)
-//    }
+    private func setTextFieldValue(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField {
+            case redTextField:
+                redTextField.text = getSliderStringValue(from: redSlider)
+            case greenTextField:
+                greenTextField.text = getSliderStringValue(from: greenSlider)
+            default:
+                blueTextField.text = getSliderStringValue(from: blueSlider)
+            }
+        }
+    }
 }
 
