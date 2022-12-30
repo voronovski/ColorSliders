@@ -35,23 +35,27 @@ class SettingsViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
         setViewColor()
-        setTextFieldValue()
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
+        setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
     }
 
     // MARK: - IBActions
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setViewColor()
-        setTextFieldValue()
+        setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
+        setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
         
-        switch sender {
-        case redSlider:
-            redValueLabel.text = getSliderStringValue(from: redSlider)
-        case greenSlider:
-            greenValueLabel.text = getSliderStringValue(from: greenSlider)
-        default:
-            blueValueLabel.text = getSliderStringValue(from: blueSlider)
-        }
+//        switch sender {
+//        case redSlider:
+//            redValueLabel.text = getSliderStringValue(from: redSlider)
+//            redTextField.text = getSliderStringValue(from: redSlider)
+//        case greenSlider:
+//            greenValueLabel.text = getSliderStringValue(from: greenSlider)
+//            greenTextField.text = getSliderStringValue(from: greenSlider)
+//        default:
+//            blueValueLabel.text = getSliderStringValue(from: blueSlider)
+//            blueTextField.text = getSliderStringValue(from: blueSlider)
+//        }
     }
     
     // MARK: - Private methods
@@ -74,6 +78,16 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    private func setViewColor() {
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
+        color = colorView.backgroundColor
+    }
+    
     private func setRGBLabelsValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label {
@@ -87,21 +101,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func setViewColor() {
-        colorView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value),
-            alpha: 1
-        )
-        color = colorView.backgroundColor
-    }
-    
-    private func getSliderStringValue(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value)
-    }
-    
-    private func setTextFieldValue(for textFields: UITextField...) {
+    private func setTextFieldsValue(for textFields: UITextField...) {
         textFields.forEach { textField in
             switch textField {
             case redTextField:
@@ -112,6 +112,10 @@ class SettingsViewController: UIViewController {
                 blueTextField.text = getSliderStringValue(from: blueSlider)
             }
         }
+    }
+    
+    private func getSliderStringValue(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 
