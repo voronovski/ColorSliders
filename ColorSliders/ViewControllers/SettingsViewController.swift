@@ -128,14 +128,30 @@ final class SettingsViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let redTextFieldValue = Float(redTextField.text ?? "0") else { return }
-        guard let greenTextFieldValue = Float(greenTextField.text ?? "0") else { return }
-        guard let blueTextFieldValue = Float(blueTextField.text ?? "0") else { return }
+        var redComponent: CGFloat = 0
+        var greenComponent: CGFloat = 0
+        var blueComponent: CGFloat = 0
+        var alphaComponent: CGFloat = 0
+        color.getRed(&redComponent, green: &greenComponent, blue: &blueComponent, alpha: &alphaComponent)
         
+        guard let newValue = textField.text else { return }
+        guard let floatValue = Float(newValue) else { return }
+        let cgFloatValue = CGFloat(floatValue)
+        
+        if textField == redTextField {
+            setAllValues(red: cgFloatValue, green: greenComponent, blue: blueComponent)
+        } else if textField == greenTextField {
+            setAllValues(red: redComponent, green: cgFloatValue, blue: blueComponent)
+        } else {
+            setAllValues(red: redComponent, green: greenComponent, blue: cgFloatValue)
+        }
+    }
+    
+    private func setAllValues(red: CGFloat, green: CGFloat, blue: CGFloat) {
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redTextFieldValue),
-            green: CGFloat(greenTextFieldValue),
-            blue: CGFloat(blueTextFieldValue),
+            red: CGFloat(red),
+            green: CGFloat(green),
+            blue: CGFloat(blue),
             alpha: 1
         )
         color = colorView.backgroundColor
