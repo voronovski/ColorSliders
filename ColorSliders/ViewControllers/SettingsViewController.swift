@@ -39,10 +39,15 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 20
+        
         setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
-        setViewColor()
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
         setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
+        setViewColor()
+        
+        redTextField.delegate = self
+        blueTextField.delegate = self
+        greenTextField.delegate = self
     }
 
     // MARK: - IBActions
@@ -117,5 +122,25 @@ final class SettingsViewController: UIViewController {
     
     private func getSliderStringValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let redTextFieldValue = Float(redTextField.text ?? "0") else { return }
+        guard let greenTextFieldValue = Float(greenTextField.text ?? "0") else { return }
+        guard let blueTextFieldValue = Float(blueTextField.text ?? "0") else { return }
+        
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redTextFieldValue),
+            green: CGFloat(greenTextFieldValue),
+            blue: CGFloat(blueTextFieldValue),
+            alpha: 1
+        )
+        color = colorView.backgroundColor
+        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
+        setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
+        setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
     }
 }
