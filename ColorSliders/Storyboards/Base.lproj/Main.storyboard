@@ -148,9 +148,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="PLe-sA-aZ3"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7WC-J3-ixJ">
                                                 <rect key="frame" x="0.0" y="49" width="50" height="34"/>
@@ -159,9 +156,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="wsM-M9-acR"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-M6-Snf">
                                                 <rect key="frame" x="0.0" y="98" width="50" height="34"/>
@@ -170,9 +164,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="D4O-UI-2UQ"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -186,7 +177,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bjl-Vm-t4b" kind="unwind" unwindAction="unwindFor:" id="mZk-Cq-IN3"/>
+                                    <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyl-vm-QxK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -218,7 +209,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="bjl-Vm-t4b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="828.24427480916029" y="3.5211267605633805"/>
         </scene>

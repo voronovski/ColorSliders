@@ -7,23 +7,29 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+protocol SettingsViewControllerDelegate {
+    func setNewColor(for color: UIColor)
+}
+
+final class MainViewController: UIViewController {
 
     var color: UIColor!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         color = view.backgroundColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
         settingsVC.color = color
+        settingsVC.delegate = self
     }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard let settingsVC = segue.source as? SettingsViewController else { return }
-        color = settingsVC.color
+}
+
+extension MainViewController: SettingsViewControllerDelegate {
+    func setNewColor(for color: UIColor) {
+        self.color = color
         view.backgroundColor = color
     }
-
 }

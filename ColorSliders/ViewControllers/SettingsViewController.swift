@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
             
     // MARK: - IBOutlets
     
@@ -25,8 +25,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
-    
     var color: UIColor!
+    
+    var delegate: SettingsViewControllerDelegate!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -44,19 +50,14 @@ class SettingsViewController: UIViewController {
         setViewColor()
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
         setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
-        
-//        switch sender {
-//        case redSlider:
-//            redValueLabel.text = getSliderStringValue(from: redSlider)
-//            redTextField.text = getSliderStringValue(from: redSlider)
-//        case greenSlider:
-//            greenValueLabel.text = getSliderStringValue(from: greenSlider)
-//            greenTextField.text = getSliderStringValue(from: greenSlider)
-//        default:
-//            blueValueLabel.text = getSliderStringValue(from: blueSlider)
-//            blueTextField.text = getSliderStringValue(from: blueSlider)
-//        }
     }
+    
+    @IBAction func doneButtonPressed() {
+        view.endEditing(true)
+        delegate.setNewColor(for: color)
+        dismiss(animated: true)
+    }
+    
     
     // MARK: - Private methods
     private func setSlidersValue(for sliders: UISlider..., as color: UIColor) {
@@ -118,4 +119,3 @@ class SettingsViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
 }
-
