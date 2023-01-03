@@ -157,6 +157,5 @@ extension SettingsViewController: UITextFieldDelegate {
         color = colorView.backgroundColor
         setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
-        setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
     }
 }
