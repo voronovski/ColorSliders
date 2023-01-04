@@ -25,8 +25,8 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
-    var color: UIColor!
-    
+    // MARK: - Public Properties
+    var viewColor: UIColor!
     var delegate: SettingsViewControllerDelegate!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,7 +40,7 @@ final class SettingsViewController: UIViewController {
         
         colorView.layer.cornerRadius = 20
         
-        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
+        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: viewColor)
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
         setTextFieldsValue(for: redTextField, greenTextField, blueTextField)
         setViewColor()
@@ -58,8 +58,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
-        view.endEditing(true)
-        delegate.setNewColor(for: color)
+        delegate.setColor(viewColor)
         dismiss(animated: true)
     }
     
@@ -91,7 +90,7 @@ final class SettingsViewController: UIViewController {
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-        color = colorView.backgroundColor
+        viewColor = colorView.backgroundColor
     }
     
     private func setRGBLabelsValue(for labels: UILabel...) {
@@ -132,7 +131,7 @@ extension SettingsViewController: UITextFieldDelegate {
         var greenComponent: CGFloat = 0
         var blueComponent: CGFloat = 0
         var alphaComponent: CGFloat = 0
-        color.getRed(&redComponent, green: &greenComponent, blue: &blueComponent, alpha: &alphaComponent)
+        viewColor.getRed(&redComponent, green: &greenComponent, blue: &blueComponent, alpha: &alphaComponent)
         
         guard let newValue = textField.text else { return }
         guard let floatValue = Float(newValue) else { return }
@@ -154,8 +153,8 @@ extension SettingsViewController: UITextFieldDelegate {
             blue: CGFloat(blue),
             alpha: 1
         )
-        color = colorView.backgroundColor
-        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: color)
+        viewColor = colorView.backgroundColor
+        setSlidersValue(for: redSlider, greenSlider, blueSlider, as: viewColor)
         setRGBLabelsValue(for: redValueLabel, greenValueLabel, blueValueLabel)
     }
 }
