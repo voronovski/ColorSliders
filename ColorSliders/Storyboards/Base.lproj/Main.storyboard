@@ -196,16 +196,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="8b6-cA-Jjh"/>
                     <connections>
+                        <outlet property="blueLabel" destination="p0t-MI-HHu" id="zpN-Ux-YwD"/>
                         <outlet property="blueSlider" destination="ua2-s6-Lzn" id="Mcb-GA-avN"/>
                         <outlet property="blueTextField" destination="PgZ-M6-Snf" id="cv4-Cj-kub"/>
-                        <outlet property="blueValueLabel" destination="p0t-MI-HHu" id="zpN-Ux-YwD"/>
                         <outlet property="colorView" destination="GCh-BD-BKw" id="6Vq-QA-96u"/>
+                        <outlet property="greenLabel" destination="atV-Vq-nEJ" id="UyJ-Gb-L7F"/>
                         <outlet property="greenSlider" destination="pfj-at-D21" id="QB0-AN-wtX"/>
                         <outlet property="greenTextField" destination="7WC-J3-ixJ" id="WbS-8R-x2p"/>
-                        <outlet property="greenValueLabel" destination="atV-Vq-nEJ" id="UyJ-Gb-L7F"/>
+                        <outlet property="redLabel" destination="T5v-ta-wnp" id="DgW-9p-IU1"/>
                         <outlet property="redSlider" destination="yEY-wn-Qfm" id="r6b-RJ-qjT"/>
                         <outlet property="redTextField" destination="Qv4-fO-D0a" id="SSQ-BF-hQ4"/>
-                        <outlet property="redValueLabel" destination="T5v-ta-wnp" id="DgW-9p-IU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
